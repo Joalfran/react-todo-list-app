@@ -1,0 +1,14 @@
+.TodoButton {
+    border: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size:x-large;
+    font-weight: 900;
+    transition-duration: .5s;
+    filter: drop-shadow(2px 2px #20232926);
+}
+
+.TodoButton:hover {
+    transform: scale(1.2); /* Es lo mismo que scaleX(1) scaleY(1) */
+}

@@ -1,24 +1,49 @@
-import logo from './platzi.webp';
-import './App.css';
+import React from 'react';
+import { TodoCounter } from './TodoCounter';
+import { TodoSearch } from './TodoSearch';
+import { TodoList } from './TodoList';
+import { TodoItem } from './TodoItem';
+import { TodoButton } from './TodoButton';
+
+
+const defaultTodos = [
+  { text: 'Cortar Cebolla', completed: true },
+  { text: 'Tomar del Curso a React.js', completed: false },
+  { text: 'Llorar con la Llorona', completed: false },
+  { text: 'LALALALA', completed: false },
+];
 
 function App() {
+  const [todos, setTodos] = React.useState (defaultTodos);
+  const [searchValue, setSearchValue] = React.useState('');
+  const completedTodos = todos.filter (todo => 
+    !!todo.completed
+  ).lenght;
+  const totalTodos = todos.lenght;
+
+  console.log('los usurios buscan to-dos de ' +searchValue);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edita el archivo <code>src/App.js</code> y guarda para recargar.
-        </p>
-        <a
-          className="App-link"
-          href="https://platzi.com/reactjs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TodoCounter 
+        completed={completedTodos} 
+        total={totalTodos} 
+      />
+      <TodoSearch 
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
+      <TodoList>
+        {defaultTodos.map (todo => (
+          <TodoItem 
+          key={todo.text} 
+          text={todo.text}
+          completed={todo.completed}
+          />
+        ))}
+      </TodoList>
+      <TodoButton />
+    </>
   );
 }
 

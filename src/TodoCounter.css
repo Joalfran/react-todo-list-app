@@ -1,0 +1,20 @@
+/* El immportar el archivo css reemplaza los estilos en línea (con la sintáxis de React en camel case "fontSize" para reemplazar "font-size" )a cada elemento del Todo Counter, como por ejemplo: 
+<h1 style={{
+    fontSize: '24px',
+    textAlign: 'center',
+    margin: '0',
+    padding: '48px',  
+  }}>
+    has completado {completed} de {total}
+</h1>*/
+.TodoCounter {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding: 48px 0;     
+}
+
+.TodoCounter span {
+  font-weight: bold;
+}
