@@ -13,34 +13,6 @@
 }*/
 
 /* Using Grid*/
-
-.CkeckItem {
-    place-self: center;
-    grid-area: check;
-    font-weight: 900;
-}
-.CkeckItem:hover {
-    cursor: pointer;
-}
-.CheckItem--Completed {
-    color: green;  
-}
-.DescriptionItem {
-    place-self: center start;
-    grid-area: description;
-}
-.DescriptionItem__p--Completed {
-  text-decoration: line-through;
-}
-.DeleteItem {
-    place-self: start center;
-    grid-area: delete;
-    font-weight: 900;
-}
-.DeleteItem:hover {
-    color: red;
-    cursor: pointer;
-}
 .TodoItem {
     display: grid;
     gap: 1rem;
@@ -50,4 +22,11 @@
     border-radius: 2px;
     background-color: #FFFFFF;
     filter: drop-shadow(2px 2px #20232926);
+}
+.DescriptionItem {
+    place-self: center start;
+    grid-area: description;
+}
+.DescriptionItem__p--Completed {
+  text-decoration: line-through;
 }

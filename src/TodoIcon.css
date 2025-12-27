@@ -1,0 +1,26 @@
+/* Using Grid*/
+.CheckItem--completed {
+    align-self: center;
+    grid-area: check;
+    font-weight: 900;
+    color: green;  
+}
+.CheckItem--delete {
+    align-self: center;
+    grid-area: delete;
+    font-weight: 900;
+}
+.CheckItem--svg {
+    width: 24px;
+    height: 24px;
+}
+
+.CheckItem--completed:hover .CheckItem--svg {
+    fill: green;
+    cursor: pointer;
+}
+
+.CheckItem--deleted:hover .CheckItem--svg {
+    fill: red;
+    cursor: pointer;
+}
