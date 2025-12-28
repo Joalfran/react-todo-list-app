@@ -6,16 +6,44 @@ import { TodoItem } from './TodoItem';
 import { TodoButton } from './TodoButton';
 
 
-const defaultTodos = [
-  { text: 'Cortar Cebolla', completed: true },
-  { text: 'Tomar del Curso a React.js', completed: false },
-  { text: 'Llorar con la Llorona', completed: false },
-  { text: 'LALALALA', completed: false },
-  { text: 'Usar estados derivados', completed: true },
-];
+//const defaultTodos = [
+  //{ text: 'Cortar Cebolla', completed: true },
+  //{ text: 'Tomar del Curso a React.js', completed: false },
+  //{ text: 'Llorar con la Llorona', completed: false },
+  //{ text: 'LALALALA', completed: false },
+  //{ text: 'Usar estados derivados', completed: true },
+//];
+
+//localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
+//localStorage.removeItem('TODOS_V1', defaultTodos);
+
+function useLocalStorage (itemName, initialValue) {
+
+const localStorageItem = localStorage.getItem(itemName);
+
+let parsedItem;
+
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  } else {
+    parsedItem = JSON.parse(localStorageItem);
+  }
+
+  const [item, setItem] = React.useState(parsedItem);
+
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  };
+
+  return [item, saveItem];
+
+}
 
 function App() {
-  const [todos, setTodos] = React.useState (defaultTodos);
+
+  const [todos, saveTodos] = useLocalStorage ('TODOS_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
   const completedTodos = todos.filter(todo => 
     !!todo.completed
@@ -35,7 +63,7 @@ const completeTodo = (text) => {
     (todo) => todo.text === text
   );
   newTodos[todoIndex].completed = true;
-  setTodos(newTodos);
+  saveTodos(newTodos);
 };
 
 const deleteTodo = (text) => {
@@ -44,7 +72,7 @@ const deleteTodo = (text) => {
     (todo) => todo.text === text
   );
   newTodos.splice(todoIndex, 1);
-  setTodos(newTodos);
+  saveTodos(newTodos);
 };
 
   return (
