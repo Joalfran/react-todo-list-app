@@ -17,11 +17,12 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: [line1] 30px [line2] auto [line3] 30px;
-    grid-template-rows: 100px;
+    grid-template-rows: 70px;
     grid-template-areas: "check description delete";
     border-radius: 2px;
     background-color: #FFFFFF;
     filter: drop-shadow(2px 2px #20232926);
+    padding: 16px;
 }
 .DescriptionItem {
     place-self: center start;

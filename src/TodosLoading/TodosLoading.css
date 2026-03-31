@@ -1,0 +1,40 @@
+/* Using Grid*/
+.TodosLoading__TodoItem {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: [line1] 30px [line2] auto [line3] 30px;
+    grid-template-rows: 70px;
+    grid-template-areas: "check description delete";
+    background-color: #eee;
+    background-image: linear-gradient(90deg, #eee, #f5f5f5, #eee);
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    filter: drop-shadow(2px 2px #20232926);
+    animation: skeleton-animation 1.5s ease-in-out infinite;
+    padding: 16px;
+}
+
+/* Item*/
+.TodosLoading__DescriptionItem {
+    place-self: center start;
+    grid-area: description;
+}
+
+.TodosLoading__CheckItem--completed {
+    align-self: center;
+    grid-area: check;
+}
+
+.TodosLoading__CheckItem--delete {
+    align-self: center;
+    grid-area: delete;
+}
+
+    @keyframes skeleton-animation {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+    }
