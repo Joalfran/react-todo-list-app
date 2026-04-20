@@ -35,5 +35,16 @@ function useLocalStorage (itemName, initialValue) {
 
   return {item, saveItem, loading, error};
 }
+// Parámetros que puedes ser usados en la consola del navegador para probar el hook:
+//const defaultTodos = [
+  //{ text: 'Cortar Cebolla', completed: true },
+  //{ text: 'Tomar del Curso a React.js', completed: false },
+  //{ text: 'Llorar con la Llorona', completed: false },
+  //{ text: 'LALALALA', completed: false },
+  //{ text: 'Usar estados derivados', completed: true },
+//];
+
+//localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
+//localStorage.removeItem('TODOS_V1', defaultTodos);
 
 export { useLocalStorage };
