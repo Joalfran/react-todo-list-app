@@ -48,7 +48,7 @@ const deleteTodo = (text) => {
             completeTodo, 
             deleteTodo,
             openModal,
-            setOpenModal
+            setOpenModal,
         }}>
             {children}
         </TodoContext.Provider>
